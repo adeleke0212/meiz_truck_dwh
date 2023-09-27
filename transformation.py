@@ -55,6 +55,8 @@ def transformTransactions():
     tdf['transaction_month'] = pd.DatetimeIndex(tdf['date']).month
     tdf['transaction_day'] = pd.DatetimeIndex(tdf['date']).day
     tdf["quarter"] = tdf.date.dt.quarter
+    tdf = tdf[['id', 'customer_id', 'item_id', 'date', 'bank_id', 'qty',
+               'transaction_year', 'transaction_month', 'transaction_day', 'quarter']]
     tdf.to_csv('transformed_Datasets/transactions.csv')
 
 
