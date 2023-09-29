@@ -1,4 +1,4 @@
-db_tables = ['banks', 'customers', 'exchange_rates', 'items', 'transactions']
+db_tables = ['customers', 'banks', 'exchange_rates', 'items', 'transactions']
 
 
 pgdb_tables = ['pgbanks', 'pgcustomers',
