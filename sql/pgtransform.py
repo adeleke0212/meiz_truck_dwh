@@ -1,11 +1,11 @@
 # Create table for fact and dims tables in dwh --- start_schema
-pgstaging_schema = """
-CREATE SCHEMA IF NOT EXISTS pgstaging_schema;
+staging_schema = """
+CREATE SCHEMA IF NOT EXISTS staging_schema;
 """
 
 # Staging schema table
 dim_customers = """
-CREATE TABLE IF NOT EXISTS pgstaging_schema.dim_customers(
+CREATE TABLE IF NOT EXISTS staging_schema.pgdim_customers(
 id BIGINT IDENTITY(1, 1),
 customers_name VARCHAR not null,
 customers_email VARCHAR not null,
@@ -18,7 +18,7 @@ customers_reg_hour integer
 """
 
 dim_banks = """
-CREATE TABLE IF NOT EXISTS pgstaging_schema.dim_banks(
+CREATE TABLE IF NOT EXISTS staging_schema.pgdim_banks(
 id VARCHAR not null,
 bank_name VARCHAR not null,
 bank_code integer not null,
@@ -28,7 +28,7 @@ exchange_rate_date DATE
 """
 # exchange rate from exchange-rate table
 dims_items = """
-CREATE TABLE IF NOT EXISTS pgstaging_schema.dims_items(
+CREATE TABLE IF NOT EXISTS staging_schema.pgdims_items(
 id integer not null,
 truck_name VARCHAR,
 cost_price NUMERIC(7,2),
@@ -38,7 +38,7 @@ selling_price NUMERIC(7,2)
 
 
 ft_transactions = """
-CREATE TABLE IF NOT EXISTS pgstaging_schema.ft_transactions(
+CREATE TABLE IF NOT EXISTS staging_schema.pgft_transactions(
 id BIGINT IDENTITY(1, 1),
 items_id integer not null,
 truck_qty_sold integer not null,

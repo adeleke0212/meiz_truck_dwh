@@ -1,0 +1,38 @@
+
+
+# Create raw schema dbtables
+
+
+def create_raw_schema_tables():
+    dwh_conn = connect_to_redshift()
+    cursor = dwh_conn.cursor()
+    for query in dwh_raw_schema_tables:
+        print(f"==================={query[:55]}")
+        cursor.execute(query)
+        dwh_conn.commit()
+    print('All tables created')
+    cursor.close()
+    dwh_conn.close()
+
+# Create tables for pandas explored Datasets
+
+
+def create_raw_schema_tables():
+    dwh_conn = connect_to_redshift()
+    cursor = dwh_conn.cursor()
+    for query in dwh_raw_schema_tables:
+        print(f"==================={query[:55]}")
+        cursor.execute(query)
+        dwh_conn.commit()
+    print('All tables created')
+    cursor.close()
+    dwh_conn.close()
+
+# # # Call the schema and tables function
+
+
+create_raw_schema()
+create_raw_schema_tables()
+
+
+# Run the pg create queries and insert queries---also check the pandas are all okay

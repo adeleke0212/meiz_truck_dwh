@@ -98,4 +98,4 @@ ON
 e.bank_id = t.bank_id
 """
 
-insert_query = [dim_customers, dim_banks, ft_transactions]
+insert_queries = [dim_customers, dim_banks, ft_transactions]

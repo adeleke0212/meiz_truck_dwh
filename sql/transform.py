@@ -63,5 +63,5 @@ bank_id VARCHAR not null
 );
 """
 
-transformed_schema_tables_query = [
+transformed_schema_tables_queries = [
     dim_customers, dim_banks, dims_items, ft_transactions]
