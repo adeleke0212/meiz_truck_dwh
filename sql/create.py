@@ -1,9 +1,9 @@
 raw_data_schema = """
-CREATE SCHEMA IF NOT EXIST raw_data_schema;
+CREATE SCHEMA IF NOT EXISTS raw_data_schema;
 """
 
 banks = """
-CREATE TABLE IF NOT EXISTS banks(
+CREATE TABLE IF NOT EXISTS raw_data_schema.banks(
 id VARCHAR primary key not null,
 bank_name VARCHAR not null,
 bank_code integer not null
@@ -11,10 +11,10 @@ bank_code integer not null
 """
 
 customers = """
-CREATE TABLE IF NOT EXISTS customers(
+CREATE TABLE IF NOT EXISTS raw_data_schema.customers(
 id integer primary key not null,
 customers_name VARCHAR not null,
-customers_email not null,
+customers_email VARCHAR not null,
 customers_reg_date DATE not null,
 customers_reg_year integer,
 customers_reg_month integer,
@@ -23,15 +23,15 @@ customers_reg_hour integer
 );
 """
 exchange_rates = """
-CREATE TABLE IF NOT EXISTS exchange_rates(
-exchange_rate,
+CREATE TABLE IF NOT EXISTS raw_data_schema.exchange_rates(
+exchange_rate NUMERIC(7,2),
 bank_id VARCHAR,
 date DATE
 )
 """
 
 items = """
-CREATE TABLE IF NOT EXISTS items(
+CREATE TABLE IF NOT EXISTS raw_data_schema.items(
 id integer primary key not null,
 truck_name VARCHAR,
 cost_price NUMERIC(7,2),
@@ -40,17 +40,17 @@ selling_price NUMERIC(7,2)
 """
 
 transactions = """
-CREATE TABLE IF NOT EXISTS transactions(
+CREATE TABLE IF NOT EXISTS raw_data_schema.transactions(
 id integer primary key not null,
 customer_id integer NOT NULL,
 item_id integer not null,
 date DATE not null,
-bank_id VARCHAR not null,
+bank_id VARCHAR,
 qty integer not null,
-transaction_year integer not null,
-transaction_month integer not null,
-transaction_day integer not null,
-quarter integer not null
+transaction_year integer,
+transaction_month integer,
+transaction_day integer,
+quarter integer
 
 );
 """

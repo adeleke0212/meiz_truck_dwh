@@ -21,7 +21,7 @@ def getHour(df):
     df['registered_hour'] = df['registered_hour'].astype(int)
     df = df[['id', 'name', 'email', 'registered_at', 'registered_year',
              'registered_month', 'registered_day', 'registered_hour']]
-    df.to_csv('transformed_Datasets/customers.csv')
+    df.to_csv('transformed_Datasets/customers.csv', index=False)
 
 
 df = transformCustomers()
