@@ -48,8 +48,7 @@ def load_to_local_pandasExplore():
 # load_to_local_pandasExplore()
 
 # Load to s3 - bucket
-# so realised in my bucket, i have .csv.csv extension so i performed the operation below
-# .to_csv will normally add .csv
+# Removing the .csv.csv extension so i performed the operation below
 
 
 def loadPandasExploredDatasets_toS3():
